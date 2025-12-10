@@ -1,4 +1,4 @@
-//  Primitive
+//  Primitive(aditya)
 
 //  7 types : String, Number, Boolearn, null, undefined, Symbol, BigInt
 
