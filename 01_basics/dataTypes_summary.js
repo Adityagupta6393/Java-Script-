@@ -12,7 +12,7 @@ let userEmail;
 const id = Symbol('123')
 const anotherId = Symbol('123')
 
-console.log(id === anotherId);
+// console.log(id === anotherId);
 
 // const bigNumber = 3456543576654356754n
 
@@ -32,7 +32,7 @@ const myFunction = function(){
     console.log("Hello world");
 }
 
-console.log(typeof anotherId);
+// console.log(typeof anotherId);
 
 /*
 Return type of variables in JavaScript
@@ -50,3 +50,28 @@ Return type of variables in JavaScript
        Function  =>  function
        Object  =>  object     
 */
+
+
+// **************************************************
+//Stack (primitive) and Heap (Non primitive) Memory
+
+let myYouTubeName = "Hitesh Chaudhary";
+let anotherName = myYouTubeName;
+
+anotherName = "Code with Hitesh";
+
+console.log(myYouTubeName);  /*  Will not change because both are stored in stack memory and anotherName is a copy of myYouTubeName */
+console.log(anotherName);
+
+
+let userOne = {
+    email: "aditya@gmail.com",
+    phoneNo : 1234567890
+}
+
+let userTwo = userOne;
+
+userTwo.email = "gupta@gamil.com";
+
+console.log(userOne.email);  /*  Both will change because both are referring to same object in heap memory */
+console.log(userTwo.email);
