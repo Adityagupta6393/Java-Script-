@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bubbling Example</title>
+    <style>
+        #bg-black {
+            background-color: #414141;
+            color: aliceblue;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+
+<body id="bg-black">
+    <h2>Amazing images</h2>
+    <div>
+        <ul id="images">
+            <li>
+                <img width="200px" id="owl"
+                     src="https://images.pexels.com/photos/35063543/pexels-photo-35063543.jpeg">
+            </li>
+            <li>
+                <img width="200px" id="house"
+                     src="https://images.pexels.com/photos/35065722/pexels-photo-35065722.jpeg">
+            </li>
+            <li>
+                <img width="200px" id="flower"
+                     src="https://images.pexels.com/photos/35063612/pexels-photo-35063612.jpeg">
+            </li>
+            <li>
+                <a href="www.google.com" id="google">GOOOGLE</a>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        // document.getElementById('images').addEventListener('click', function (e) {
+        //     console.log("clicked inside the ul");
+        // },false);
+
+        // document.getElementById('owl').addEventListener('click', function (e) {
+        //     console.log("owl clicked");
+        //     e.stopPropagation();
+        // }, false);
+
+        // document.getElementById("google").addEventListener('click',function(e){
+        //     e.preventDefault();
+        //     e.stopPropagation();
+        //     console.log("google clicked");
+        // }, false);
+
+        document.querySelector("#images").addEventListener("click",function(e){
+           
+            console.log(e.target.parentNode);
+
+            // let removeIt = e.target.parentNode;       In this case we clicked on li by chance, it will delete the all li element together but don't want to delete all li element together . Our target is to delete only single li element by clcking on image. 
+            // removeIt.remove();
+
+            if(e.target.tagName === "IMG"){
+                let removeIt = e.target.parentNode;
+                removeIt.remove();
+            }
+        })
+
+    </script>
+</body>
+</html>

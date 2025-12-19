@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #bg-black {
+            background-color: #414141;
+            color: aliceblue;
+        }
+
+    </style>
+</head>
+<body id="bg-black">
+    <h1>Chai or Code</h1>
+    <button id="stop">Stop</button>
+
+    <script>
+
+        const aditya = () => {
+            console.log("Hey, there is aditya !");
+           
+        }
+
+        const changeText = function() {
+            document.querySelector('h1').innerHTML = "By by chai or code"
+        }
+
+        const changeMe = setTimeout (changeText , 2000);
+
+        document.querySelector("#stop").addEventListener("click", function(){
+            clearTimeout(changeMe);
+            console.log("Timeout stopped");
+        }, false);
+    </script>
+</body>
+</html>
