@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bg-black {
+            background-color: #414141;
+            color: aliceblue;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #profile {
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body class="bg-black">
+    <button id="show">show</button>
+    <div class="card">
+
+
+        
+    </div>
+
+    <script>
+        const requestURL = "https://api.github.com/users/AdityaGupta6393";
+        const xhr = new XMLHttpRequest();
+
+        let JSONdata; //accessible everywhere
+
+        xhr.open("GET", requestURL);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                JSONdata = JSON.parse(this.responseText);
+                console.log(JSONdata.name);
+                console.log(JSONdata.avatar_url);
+            }
+        };
+        xhr.send();
+
+        const card = document.querySelector(".card");
+
+        document.querySelector("#show").addEventListener(
+            "click",
+            function () {
+                // if (!JSONdata) {
+                //     alert("Data not loaded yet!");
+                //     return;
+                // }
+
+                card.innerHTML = `<div id="profileCard">
+        <img  id="profile" src="${JSONdata.avatar_url}" alt="photo">
+        <h1>${JSONdata.name}</h1>
+        <button id ="remove">remove</button>
+        </div>
+      `;
+
+                /*document.querySelector("#remove").addEventListener("click", function () {
+                   document.querySelector("#profileCard").remove();
+                 });      // this code is written to implement functionality for remove button
+                 */
+            }
+            , false);
+    </script>
+</body>
+
+</html>
